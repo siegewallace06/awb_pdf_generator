@@ -1,0 +1,26 @@
+{
+    "orders": [
+        {
+            "trackingId": "A0000001",
+            "sentFrom": "Shipper A",
+            "fromName": "Shipper A",
+            "fromContact": "Shipper A Contact Number",
+            "fromAddress1": "Shipper A Warehouse Address 1",
+            "fromAddress2": "Shipper A Warehouse Address 2",
+            "fromCity": "Shipper A Warehouse City",
+            "fromPostcode": "Shipper A Warehouse Postcode",
+            "fromCountry": "Shipper A Warehouse Country",
+            "toName": "Consignee A",
+            "toContact": "Consignee A Contact Number",
+            "toAddress1": "Consignee A Home Address 1",
+            "toAddress2": "Consignee A Home Address 2",
+            "toCity": "Consignee A Home City",
+            "parcelSize": "Consignee A Parcel Size",
+            "sortCode": "Consignee A Parcel Sort Code",
+            "deliveryInstructions": "Please place the parcel outside the door",
+            "companyUrl": "https://example.com"
+        }
+    ],
+    "printingSize": "A4",
+    "printerOrientation": "PORTRAIT"
+}
