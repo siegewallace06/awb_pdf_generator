@@ -1,0 +1,28 @@
+{
+    "shopName": "BS - Online Store",
+    "shopPhoneNumber": "+62 812 3456 7890",
+    "shopAddress": "Jl. Merdeka No. 123, Jakarta, Indonesia",
+    "orderType": "SAP EXPRESS-UDRREG",
+    "orderID": "CLSA00205602",
+    "orderNumber": "1723470",
+    "orderCodValue": 500000,
+    "orderInsuranceValue": 50000,
+    "orderWeight": 1.2,
+    "orderShippingCost": 25000,
+    "orderNote": "Handle with care",
+    "orderDate": "2025-01-16",
+    "orderItems": [
+        {
+            "qty": 2,
+            "orderName": "Hermosa Square - Sakura"
+        },
+        {
+            "qty": 1,
+            "orderName": "Switzerland Square - Gentian"
+        }
+    ],
+    "receiverName": "John Doe",
+    "receiverPhoneNumber": "+62 812 9876 5432",
+    "receiverAddress": "Jl. Pahlawan No. 456, Bandung, Indonesia",
+    "logisticName": "sap"
+}

@@ -1,57 +1,506 @@
-<html><body><style>body, td, p { font-family: arial, sans-serif; }pre, tt, code, kbd, samp { font-family: arial unicode ms; font-size: 9pt; line-height: 12pt; }dt { margin: 0; }body * { margin: 10%; font-size: 12pt; font-size: 8px !important; }p, dl, multicol { margin: 1em 0; }dd { margin-left: 40px; margin-bottom: 0; margin-right: 0; margin-top: 0; }blockquote, figure { margin: 1em 40px; }center { display: block; text-align: center; }blockquote[type='cite'] { border: 3px solid; padding-left: 1em; border-color: blue; border-width: thin; margin: 1em 0; }h1 { font-size: 2em; font-weight: bold; margin: 0.67em 0; }h2 { font-size: 1.5em; font-weight: bold; margin: 0.83em 0; }h3 { font-size: 1.17em; font-weight: bold; margin: 1em 0; }h4 { font-size: 1em; font-weight: bold; margin: 1.33em 0; }h5 { font-size: 0.83em; font-weight: bold; margin: 1.67em 0; }h6 { font-size: 0.67em; font-weight: bold; margin: 2.33em 0; }listing { font-size: medium; margin: 1em 0; white-space: pre; }xmp, pre, plaintext { margin: 1em 0; white-space: pre; }table { margin-bottom: 0; margin-top: 0; margin-left: 0; margin-right: 0; text-indent: 0; max-width: 300px; }caption { text-align: center; }tr { vertical-align: inherit; }tbody { vertical-align: middle; }thead { vertical-align: middle; }tfoot { vertical-align: middle; }table > tr { vertical-align: middle; }td { padding: 1px; text-align: inherit; vertical-align: inherit; }th { display: table-cell; font-weight: bold; padding: 1px; vertical-align: inherit; }sub { font-size: smaller; vertical-align: sub; }sup { font-size: smaller; vertical-align: super; }nobr { white-space: nowrap; }mark { background: none repeat scroll 0 0 yellow; color: black; }abbr[title], acronym[title] { border-bottom: 1px dotted; }ul, menu, dir { list-style-type: disc; }ul li ul { list-style-type: circle; }ol { list-style-type: decimal; }hr { color: gray; height: 2px; }
-        .awb_table .subtitle { font-size: 14px; }
-        .awb_table .description { font-style: italic; color: #828385; font-size: 9px; }
-        .awb_table .tracking_num { font-size: 14px; }
-        .awb_table .sort_code_box { border: 1px solid #000; width: 100%; }
-        .awb_table .sort_code { font-weight: bold; font-size: 24px; }
-        .awb_table .sort_code_guide { font-weight: bold; font-size: 10px; color: #9d9d9d; letter-spacing: 4px; }
-        .awb_table .sort_code_margin { height: 10px; font-size: 1px; }
-        .awb_table .text_center { text-align: center; }
-        .awb_table .box { border: 1.5px solid #cccccc; width: 100%; }
-        .awb_table .box .box_title { border-bottom: 1.5px solid #cccccc; font-weight: bold; font-size: 13px; }
-        .awb_table .box_content { height: 145px; }
-        .awb_table .row_content { height: 30px; }
-        .awb_table .box_content_table { font-size: 12px; width: 100%; }
-        .awb_table .grey_text { color: #828385; }
-        .awb_table .margin { height: 10px; font-size: 1px; }
-        .footer_margin { height: 10px; font-size: 1px; }
-        .awb_table .parcel_size_title { font-weight: bold; font-size: 14px; text-align: center; }
-        .awb_table .parcel_size_image { height: 40px; }
-        .awb_table .parcel_size_description { color: #828385; font-size: 10px; text-align: center; }
-        .awb_table .box .small_title { font-weight: bold; font-size: 10px; }
-        .awb_table .box .comment { height: 50px; }
-        .awb_table .box .cod { font-weight: bold; font-size: 17px; height: 40px; text-align: center; }
-        .awb_table .info_icon { height: 17px; }
-        .awb_table img.qr_code { height: 32px; }
-        .awb_table img.barcode_code { height: 24px; }
-    </style><td style='width: 49%; vertical-align: top;'><table cellspacing='0' cellpadding='6' style='width: 100%;' class='border'><tr><td><table cellspacing='0' cellpadding='4' style='width: 100%;' class='awb_table'><tr><td class='text_center'>
-        <table cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+<html>
+
+<body>
+    <style>
+        body,
+        td,
+        p {
+            font-family: arial, sans-serif;
+        }
+
+        pre,
+        tt,
+        code,
+        kbd,
+        samp {
+            font-family: arial unicode ms;
+            font-size: 9pt;
+            line-height: 12pt;
+        }
+
+        dt {
+            margin: 0;
+        }
+
+        body * {
+            margin: 10%;
+            font-size: 12pt;
+            font-size: 8px !important;
+        }
+
+        p,
+        dl,
+        multicol {
+            margin: 1em 0;
+        }
+
+        dd {
+            margin-left: 40px;
+            margin-bottom: 0;
+            margin-right: 0;
+            margin-top: 0;
+        }
+
+        blockquote,
+        figure {
+            margin: 1em 40px;
+        }
+
+        center {
+            display: block;
+            text-align: center;
+        }
+
+        blockquote[type='cite'] {
+            border: 3px solid;
+            padding-left: 1em;
+            border-color: blue;
+            border-width: thin;
+            margin: 1em 0;
+        }
+
+        h1 {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 0.67em 0;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0.83em 0;
+        }
+
+        h3 {
+            font-size: 1.17em;
+            font-weight: bold;
+            margin: 1em 0;
+        }
+
+        h4 {
+            font-size: 1em;
+            font-weight: bold;
+            margin: 1.33em 0;
+        }
+
+        h5 {
+            font-size: 0.83em;
+            font-weight: bold;
+            margin: 1.67em 0;
+        }
+
+        h6 {
+            font-size: 0.67em;
+            font-weight: bold;
+            margin: 2.33em 0;
+        }
+
+        listing {
+            font-size: medium;
+            margin: 1em 0;
+            white-space: pre;
+        }
+
+        xmp,
+        pre,
+        plaintext {
+            margin: 1em 0;
+            white-space: pre;
+        }
+
+        table {
+            margin-bottom: 0;
+            margin-top: 0;
+            margin-left: 0;
+            margin-right: 0;
+            text-indent: 0;
+            max-width: 300px;
+        }
+
+        caption {
+            text-align: center;
+        }
+
+        tr {
+            vertical-align: inherit;
+        }
+
+        tbody {
+            vertical-align: middle;
+        }
+
+        thead {
+            vertical-align: middle;
+        }
+
+        tfoot {
+            vertical-align: middle;
+        }
+
+        table>tr {
+            vertical-align: middle;
+        }
+
+        td {
+            padding: 1px;
+            text-align: inherit;
+            vertical-align: inherit;
+        }
+
+        th {
+            display: table-cell;
+            font-weight: bold;
+            padding: 1px;
+            vertical-align: inherit;
+        }
+
+        sub {
+            font-size: smaller;
+            vertical-align: sub;
+        }
+
+        sup {
+            font-size: smaller;
+            vertical-align: super;
+        }
+
+        nobr {
+            white-space: nowrap;
+        }
+
+        mark {
+            background: none repeat scroll 0 0 yellow;
+            color: black;
+        }
+
+        abbr[title],
+        acronym[title] {
+            border-bottom: 1px dotted;
+        }
+
+        ul,
+        menu,
+        dir {
+            list-style-type: disc;
+        }
+
+        ul li ul {
+            list-style-type: circle;
+        }
+
+        ol {
+            list-style-type: decimal;
+        }
+
+        hr {
+            color: gray;
+            height: 2px;
+        }
+
+        .awb_table .subtitle {
+            font-size: 14px;
+        }
+
+        .awb_table .description {
+            font-style: italic;
+            color: #828385;
+            font-size: 9px;
+        }
+
+        .awb_table .tracking_num {
+            font-size: 14px;
+        }
+
+        .awb_table .sort_code_box {
+            border: 1px solid #000;
+            width: 100%;
+        }
+
+        .awb_table .sort_code {
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .awb_table .sort_code_guide {
+            font-weight: bold;
+            font-size: 10px;
+            color: #9d9d9d;
+            letter-spacing: 4px;
+        }
+
+        .awb_table .sort_code_margin {
+            height: 10px;
+            font-size: 1px;
+        }
+
+        .awb_table .text_center {
+            text-align: center;
+        }
+
+        .awb_table .box {
+            border: 1.5px solid #cccccc;
+            width: 100%;
+        }
+
+        .awb_table .box .box_title {
+            border-bottom: 1.5px solid #cccccc;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .awb_table .box_content {
+            height: 145px;
+        }
+
+        .awb_table .row_content {
+            height: 30px;
+        }
+
+        .awb_table .box_content_table {
+            font-size: 12px;
+            width: 100%;
+        }
+
+        .awb_table .grey_text {
+            color: #828385;
+        }
+
+        .awb_table .margin {
+            height: 10px;
+            font-size: 1px;
+        }
+
+        .footer_margin {
+            height: 10px;
+            font-size: 1px;
+        }
+
+        .awb_table .parcel_size_title {
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .awb_table .parcel_size_image {
+            height: 40px;
+        }
+
+        .awb_table .parcel_size_description {
+            color: #828385;
+            font-size: 10px;
+            text-align: center;
+        }
+
+        .awb_table .box .small_title {
+            font-weight: bold;
+            font-size: 10px;
+        }
+
+        .awb_table .box .comment {
+            height: 50px;
+        }
+
+        .awb_table .box .cod {
+            font-weight: bold;
+            font-size: 17px;
+            height: 40px;
+            text-align: center;
+        }
+
+        .awb_table .info_icon {
+            height: 17px;
+        }
+
+        .awb_table img.qr_code {
+            height: 32px;
+        }
+
+        .awb_table img.barcode_code {
+            height: 24px;
+        }
+    </style>
+    <td style='width: 49%; vertical-align: top;'>
+        <table cellspacing='0' cellpadding='6' style='width: 100%;' class='border'>
             <tr>
-                <td style="width: 25%; text-align: left; padding: 0">
-                    <img class="qr_code" src="data:image/png;base64,[object Promise]" style="margin: 0;" />
-                </td>
-                <td style="width: 1%;"></td>
-                <td style="width: 30%; text-align: left;">
-                    <img src="https://modinity.com/cdn/shop/files/Modinity_logo_black-01_170x@2x.png?v=1650881836" style="height: 10px;" /><br />
-                    <span class="subtitle"> https://example.com</span><br />
-                </td>
-                <td style="width: 2%;"></td>
-                <td style="width: 41%;">
-                    <table cellspacing="0" cellpadding="8" class="sort_code_box">
-                        <tr><td>
-                            <div class="text_center sort_code">Consignee A Parcel Sort Code</div>
-                            <div style="height: 3px;"></div>
-                            <div class="text_center sort_code_guide">FOR INTERNAL USE</div>
-                        </td></tr>
+                <td>
+                    <table cellspacing='0' cellpadding='4' style='width: 100%;' class='awb_table'>
+                        <tr>
+                            <td class='text_center'>
+                                <table cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                                    <tr>
+                                        <td style="width: 25%; text-align: left; padding: 0">
+                                            <img class="qr_code" src="data:image/png;base64,[object Promise]"
+                                                style="margin: 0;" />
+                                        </td>
+                                        <td style="width: 1%;"></td>
+                                        <td style="width: 30%; text-align: left;">
+                                            <img src="https://modinity.com/cdn/shop/files/Modinity_logo_black-01_170x@2x.png?v=1650881836"
+                                                style="height: 10px;" /><br />
+                                            <span class="subtitle"> https://example.com</span><br />
+                                        </td>
+                                        <td style="width: 2%;"></td>
+                                        <td style="width: 41%;">
+                                            <table cellspacing="0" cellpadding="8" class="sort_code_box">
+                                                <tr>
+                                                    <td>
+                                                        <div class="text_center sort_code">Consignee A Parcel Sort Code
+                                                        </div>
+                                                        <div style="height: 3px;"></div>
+                                                        <div class="text_center sort_code_guide">FOR INTERNAL USE</div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <div class="sort_code_margin"></div>
+                                            <div class="tracking_num">A0000001</div>
+                                            <img class="barcode_code"
+                                                src="data:image/png;base64,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" />
+                                            <div style="height: 3px;"></div>
+                                            <div class="tracking_num">
+                                                P/P: Consignee A Parcel Size
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellspacing='0' cellpadding='0' border='0' width='100%'>
+                                    <tr>
+                                        <td style='width: 39%;'>
+                                            <table cellspacing='0' cellpadding='4' class='box'>
+                                                <tr>
+                                                    <td class='box_title'>From Sender</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class='box_content' valign='top'>
+                                                        <table cellspacing='0' cellpadding='0'
+                                                            class='box_content_table'>
+                                                            <tr>
+                                                                <td valign='middle' style='width: 12%;'><img
+                                                                        src='/public/images/ic_person_black_18dp_2x.png'
+                                                                        class='info_icon' /></td>
+                                                                <td valign='middle' style='width: 3%;'></td>
+                                                                <td valign='middle' style='width: 85%;' class='address'>
+                                                                    Shipper A</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan='3' class='margin'></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td valign='middle'><img
+                                                                        src='/public/images/ic_call_black_18dp_2x.png'
+                                                                        class='info_icon' /></td>
+                                                                <td valign='middle'></td>
+                                                                <td valign='middle' class='address'>Shipper A Contact
+                                                                    Number</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan='3' class='margin'></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td valign='top'><img
+                                                                        src='/public/images/ic_place_black_18dp_2x.png'
+                                                                        class='info_icon' /></td>
+                                                                <td valign='top'></td>
+                                                                <td valign='top' class='address'>Shipper A Warehouse
+                                                                    Address 1 Shipper A Warehouse Address 2 Shipper A
+                                                                    Warehouse City Shipper A Warehouse Country Shipper A
+                                                                    Warehouse Postcode</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan='3' class='margin'></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <div class='margin'></div>
+                                            <table cellspacing='0' cellpadding='4' class='box'
+                                                style='border: 3px solid #000000;'>
+                                                <tr>
+                                                    <td class='row_content' valign='middle'>
+                                                        <table cellspacing='0' cellpadding='0'
+                                                            class='box_content_table'>
+                                                            <tr>
+                                                                <td valign='middle' style='width: 14%;'>Cash on
+                                                                    Delivery:</td>
+                                                                <td valign='middle' style='width: 1%;'></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style='width: 2%;'></td>
+                                        <td style='width: 59%;'>
+                                            <table cellspacing='0' cellpadding='4' class='box'>
+                                                <tr>
+                                                    <td class='box_title'>To Addressee</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class='box_content' valign='top'>
+                                                        <table cellspacing='0' cellpadding='0'
+                                                            class='box_content_table'>
+                                                            <tr>
+                                                                <td valign='middle' style='width: 8%;'><img
+                                                                        src='/public/images/ic_person_black_18dp_2x.png'
+                                                                        class='info_icon' /></td>
+                                                                <td valign='middle' style='width: 2%;'></td>
+                                                                <td valign='middle' style='width: 90%'>Consignee A</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td colspan='3' class='margin'></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td valign='middle'><img
+                                                                        src='/public/images/ic_call_black_18dp_2x.png'
+                                                                        class='info_icon' /></td>
+                                                                <td valign='middle'></td>
+                                                                <td valign='middle' class='address'>Consignee A Contact
+                                                                    Nu****</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td valign='top' colspan='3' class='margin'></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td valign='top'></td>
+                                                                <td valign='top'></td>
+                                                                <td valign='bottom' style='font-size:8px;'>Note: The
+                                                                    contact number & address information on the Air
+                                                                    Waybill have been temporarily hidden as we are in
+                                                                    the midst of a system enhancement. You can still
+                                                                    process and ship out your orders as per usual.</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <div class='margin'></div>
+                                            <table cellspacing='0' cellpadding='4' class='box'>
+                                                <tr>
+                                                    <td class='row_content' valign='middle'>
+                                                        <table cellspacing='0' cellpadding='0'
+                                                            class='box_content_table'>
+                                                            <tr>
+                                                                <td valign='middle' style='width: 8%;'><img
+                                                                        src='/public/images/ic_access_time_black_18dp_2x.png'
+                                                                        class='info_icon' /></td>
+                                                                <td valign='middle' style='width: 20%;'>Deliver By:</td>
+                                                                <td valign='middle' style='width: 2%;'></td>
+                                                                <td valign='middle' style='width: 70%;'>-</td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
                     </table>
-                    <div class="sort_code_margin"></div>
-                    <div class="tracking_num">A0000001</div>
-                    <img class="barcode_code" src="data:image/png;base64,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" />
-                    <div style="height: 3px;"></div>
-                    <div class="tracking_num">
-                        P/P: Consignee A Parcel Size
-                    </div>
                 </td>
-            </tr>
-        </table>
-    </td></tr><tr><td><table cellspacing='0' cellpadding='0' border='0' width='100%'><tr><td style='width: 39%;'><table cellspacing='0' cellpadding='4' class='box'><tr><td class='box_title'>From Sender</td></tr><tr><td class='box_content' valign='top'><table cellspacing='0' cellpadding='0' class='box_content_table'><tr><td valign='middle' style='width: 12%;'><img src='/public/images/ic_person_black_18dp_2x.png' class='info_icon' /></td><td valign='middle' style='width: 3%;'></td><td valign='middle' style='width: 85%;' class='address'>Shipper A</td></tr><tr><td colspan='3' class='margin'></td></tr><tr><td valign='middle'><img src='/public/images/ic_call_black_18dp_2x.png' class='info_icon' /></td><td valign='middle'></td><td valign='middle' class='address'>Shipper A Contact Number</td></tr><tr><td colspan='3' class='margin'></td></tr><tr><td valign='top'><img src='/public/images/ic_place_black_18dp_2x.png' class='info_icon' /></td><td valign='top'></td><td valign='top' class='address'>Shipper A Warehouse Address 1 Shipper A Warehouse Address 2 Shipper A Warehouse City Shipper A Warehouse Country Shipper A Warehouse Postcode</td></tr><tr><td colspan='3' class='margin'></td></tr></table></td></tr></table><div class='margin'></div><table cellspacing='0' cellpadding='4' class='box' style='border: 3px solid #000000;'><tr><td class='row_content' valign='middle'><table cellspacing='0' cellpadding='0' class='box_content_table'><tr><td valign='middle' style='width: 14%;'>Cash on Delivery:</td><td valign='middle' style='width: 1%;'></td></tr></table></td></tr></table></td><td style='width: 2%;'></td><td style='width: 59%;'><table cellspacing='0' cellpadding='4' class='box'><tr><td class='box_title'>To Addressee</td></tr><tr><td class='box_content' valign='top'><table cellspacing='0' cellpadding='0' class='box_content_table'><tr><td valign='middle' style='width: 8%;'><img src='/public/images/ic_person_black_18dp_2x.png' class='info_icon' /></td><td valign='middle' style='width: 2%;'></td><td valign='middle' style='width: 90%'>Consignee A</td></tr><tr><td colspan='3' class='margin'></td></tr><tr><td valign='middle'><img src='/public/images/ic_call_black_18dp_2x.png' class='info_icon' /></td><td valign='middle'></td><td valign='middle' class='address'>Consignee A Contact Nu****</td></tr><tr><td valign='top' colspan='3' class='margin'></td></tr><tr><td valign='top'></td><td valign='top'></td><td valign='bottom' style='font-size:8px;'>Note: The contact number & address information on the Air Waybill have been temporarily hidden as we are in the midst of a system enhancement. You can still process and ship out your orders as per usual.</td></tr></table></td></tr></table><div class='margin'></div><table cellspacing='0' cellpadding='4' class='box'><tr><td class='row_content' valign='middle'><table cellspacing='0' cellpadding='0' class='box_content_table'><tr><td valign='middle' style='width: 8%;'><img src='/public/images/ic_access_time_black_18dp_2x.png' class='info_icon' /></td><td valign='middle' style='width: 20%;'>Deliver By:</td><td valign='middle' style='width: 2%;'></td><td valign='middle' style='width: 70%;'>-</td></tr></table></td></tr></table></td></tr></table></td></tr></table></td></body></html>
+</body>
+
+</html>
