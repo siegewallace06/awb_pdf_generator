@@ -19,10 +19,58 @@
         {
             "qty": 1,
             "orderName": "Switzerland Square - Gentian"
+        },
+        {
+            "qty": 1,
+            "orderName": "Hermosa Square - Yellow"
+        },
+        {
+            "qty": 1,
+            "orderName": "Switzerland Square - White"
+        },
+        {
+            "qty": 1,
+            "orderName": "Hermosa Square - Blue"
+        },
+        {
+            "qty": 1,
+            "orderName": "Switzerland Square - Red"
+        },
+        {
+            "qty": 1,
+            "orderName": "Hermosa Square - Green"
+        },
+        {
+            "qty": 1,
+            "orderName": "Switzerland Square - Blue"
+        },
+        {
+            "qty": 1,
+            "orderName": "Hermosa Square - Red"
+        },
+        {
+            "qty": 1,
+            "orderName": "Switzerland Square - Green"
+        },
+        {
+            "qty": 1,
+            "orderName": "Hermosa Square - White"
+        },
+        {
+            "qty": 1,
+            "orderName": "Switzerland Oval - Yellow"
+        },
+        {
+            "qty": 1,
+            "orderName": "Hermosa Square - Gentian"
+        },
+        {
+            "qty": 1,
+            "orderName": "Switzerland Square - Sakura"
         }
     ],
-    "receiverName": "John Doe",
-    "receiverPhoneNumber": "+62 812 9876 5432",
+    "receiverName": "Veronika Trinovianti",
+    "receiverPhoneNumber": "+6281298765432",
     "receiverAddress": "Jl. Pahlawan No. 456, Bandung, Indonesia",
     "logisticName": "sap"
 }

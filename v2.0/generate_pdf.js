@@ -455,15 +455,17 @@ function generateHtml() {
 
 // Generate HTML Body for the PDF
 function generateHtmlBody(orderData) {
-    // For Receiver Name, Only show First and Last Letter from each word.
-    // Ex: "John Smith" --> "J**n S***h"
-    const receiverName = orderData.receiverName.split(' ').map(word => {
-        return word[0] + '*'.repeat(word.length - 2) + word[word.length - 1];
-    }).join(' ');
-
-    // For Phone Number, Only show First 2 and Last 2 digits
+    // For Receiver Name, Cencor the Word only show first two characters from each word
+    // Ex: "John Smith" --> "Jo** Sm***"
+    const receiverName = orderData.receiverName.replace(/\w+/g, (word) => {
+        return word.slice(0, 2) + '*'.repeat(word.length - 2);
+    });
+    // For Phone Number, Only show First 2 and Last 2 digits. If the first char is "+", ignore it and continue for the next 2 digits
     // Ex: "081234567890" --> "08********90"
-    const receiverPhoneNumber = orderData.receiverPhoneNumber.replace(/(\d{2})\d+(\d{2})/, '$1********$2');
+    // Ex: "+6281298765432" --> "+62********32"
+    const receiverPhoneNumber = orderData.receiverPhoneNumber.replace(/(\+?\d{2})\d*(\d{2})/, (match, p1, p2) => {
+        return p1 + '*'.repeat(match.length - p1.length - p2.length) + p2;
+    });
 
     const htmlBody = `
 <body>
@@ -643,14 +645,27 @@ function generateAwbPdf() {
 // Function to Loop the Order Items from the JSON and generate div for each item
 function generateOrderItems(orderItems) {
     let orderItemsHtml = '';
-    orderItems.forEach(orderItem => {
+    orderItems.forEach((orderItem, index) => {
+        if (index < 10) {
+            orderItemsHtml += `
+            <div>
+                <span class="center">${orderItem.qty}</span>
+                <span>${orderItem.orderName}</span>
+            </div>
+            `;
+        }
+    });
+
+    if (orderItems.length > 10) {
+        const remainingItems = orderItems.length - 10;
         orderItemsHtml += `
         <div>
-            <span class="center">${orderItem.qty}</span>
-            <span>${orderItem.orderName}</span>
+            <span class="center"></span>
+            <span><b> ${remainingItems} Produk Lainnya </b></span>
         </div>
         `;
-    });
+    }
+
     return orderItemsHtml;
 }
 
