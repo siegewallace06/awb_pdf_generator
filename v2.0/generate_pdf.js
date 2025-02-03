@@ -421,6 +421,16 @@ function getDefaultCssStyle() {
                 flex-shrink: 0;
             }
         }
+.line-items__list span {
+            font-size: 8px;
+            max-width: 35ch;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+}
+
     </style>
     `
     return defaultCssStyle;
