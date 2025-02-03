@@ -455,18 +455,17 @@ function generateHtml() {
 
 // Generate HTML Body for the PDF
 function generateHtmlBody(orderData) {
-    // For Receiver Name, Cencor the Word only show first two characters from each word
+    // For Receiver Name, Hide the Word to only show first two characters from each word
     // Ex: "John Smith" --> "Jo** Sm***"
     const receiverName = orderData.receiverName.replace(/\w+/g, (word) => {
         return word.slice(0, 2) + '*'.repeat(word.length - 2);
     });
-    // For Phone Number, Only show First 2 and Last 2 digits. If the first char is "+", ignore it and continue for the next 2 digits
+    // For Phone Number, Only show First 2 and Last 2 digits.
     // Ex: "081234567890" --> "08********90"
     // Ex: "+6281298765432" --> "+62********32"
     const receiverPhoneNumber = orderData.receiverPhoneNumber.replace(/(\+?\d{2})\d*(\d{2})/, (match, p1, p2) => {
         return p1 + '*'.repeat(match.length - p1.length - p2.length) + p2;
     });
-
     const htmlBody = `
 <body>
 
@@ -517,36 +516,12 @@ function generateHtmlBody(orderData) {
         <!-- BARCODE 1 -->
         <div class="barcode-1 container w-100">
             <img src="${generateBarcode128String(orderData.orderID)}" alt="">
+            <h3 class="center">${orderData.orderID}</h3>
         </div>
 
         <div class="content border-bottom-not-last">
             <!-- CONTENT 1 -->
-            <div class="content-1 border-right w-50">
-                <h1 class="container center"> ${orderData.orderType} </h1>
-                <h1 class="container center"> ${orderData.orderID} </h1>
-            </div>
             <!-- CONTENT 2 -->
-            <div class="content-2 border-right w-25">
-                <div class="content-2__cell center">
-                    <span>NILAI COD</span>
-                    <span>Rp. ${formatNumber(orderData.orderCodValue)}</span>
-                </div>
-
-                <div class="content-2__cell center">
-                    <span>ASURANSI</span>
-                    <span>Rp. ${formatNumber(orderData.orderInsuranceValue)}</span>
-                </div>
-
-                <div class="content-2__cell center">
-                    <span>BERAT</span>
-                    <span>${orderData.orderWeight} Kg</span>
-                </div>
-
-                <div class="content-2__cell center">
-                    <span>ONGKIR</span>
-                    <span>Rp. ${formatNumber(orderData.orderShippingCost)}</span>
-                </div>
-            </div>
             <!-- CONTENT 3 -->
             <div class="content-3 w-50">
                 <div class="content-3__penerima">
@@ -586,16 +561,13 @@ function generateHtmlBody(orderData) {
                 </div>
                 <div class="content-3__keterangan border-bottom-not-last p-0">
                     <div class=" w-100 h-33">
-                        <h3 class="center"> ${getCodType(orderData.orderCodValue)} </h3>
-                    </div>
-                    <div class="w-100 h-66">
-                        <h3>CATATAN</h3>
-                        <p>
-                        ${orderData.orderNote}
-                        </p>
+                        <h3 class="center"> ${orderData.orderType} </h3>
                     </div>
                     <div class="w-100 h-33">
-                        <img class="center" src="${imageToBase64(getShipperLogo(orderData.logisticName))}" alt="">
+                        <p class="center">${getCodType(orderData.orderCodValue)} - Rp. ${formatNumber(orderData.orderShippingCost)}</p>
+                    </div>
+                    <div class="w-100 h-66">
+                        <img class="center" src="${getShipperLogo(orderData.logisticName)}" alt="">
                     </div>
                 </div>
             </div>
